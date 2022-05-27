@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 data class User(
 
     @Json(name = "id")
-    val id : String = "0" ,
+    val id : Int = 0 ,
 
     @Json(name = "name")
     val name: String ,
@@ -17,5 +17,5 @@ data class User(
     val status: String = "new" ,
 
     @Json(name = "password")
-    val password : String
+    val password : Int
 )

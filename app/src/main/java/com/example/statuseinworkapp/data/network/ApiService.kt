@@ -1,11 +1,12 @@
 package com.example.statuseinworkapp.data.network
 
 import com.example.statuseinworkapp.model.User
-import com.example.statuseinworkapp.ui.login.UserViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 
 val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
@@ -19,4 +20,7 @@ interface LoginService {
 
     @POST("users")
     suspend fun register(@Body user: User): User
+
+    @GET("users/{id}")
+    suspend fun getUser(@Path("id") id : String): User
 }

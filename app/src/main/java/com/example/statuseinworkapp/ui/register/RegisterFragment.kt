@@ -1,4 +1,4 @@
-package com.example.statuseinworkapp.ui.login
+package com.example.statuseinworkapp.ui.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.statuseinworkapp.R
 import com.example.statuseinworkapp.databinding.FragmentRegisterBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterFragment : Fragment() {
 
-    val vModel: UserViewModel by viewModel()
+    val vModel: RegisterViewModel by viewModel()
     lateinit var binding :FragmentRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +34,14 @@ class RegisterFragment : Fragment() {
 
         binding.btnRegister.setOnClickListener {
             if (checked()){
-//                vModel.register("ala","1231")
                 register()
-                binding.txvIdUser.text = vModel.user.value?.id
+                binding.txvIdUser.text = vModel.user.value?.id.toString()
+                findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
             }
+        }
+
+        binding.txvGoToLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
 
@@ -51,7 +56,7 @@ class RegisterFragment : Fragment() {
     fun register(){
         vModel.register(
             binding.edtName.toString(),
-            binding.edtPassword.toString()
+            binding.edtPassword.toString().toInt()
         )
     }
 

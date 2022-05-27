@@ -9,4 +9,8 @@ class UserRemoteDataSource(var loginApiService: LoginService) {
         return loginApiService.register(user)
     }
 
+    suspend fun getUser(id:String): User{
+        return loginApiService.getUser(id)
+    }
+
 }

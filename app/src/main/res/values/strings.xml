@@ -5,4 +5,9 @@
     <string name="name">name</string>
     <string name="password">password:</string>
     <string name="register">register</string>
+    <string name="avatarUrl">avatarUrl</string>
+    <string name="go_to_login">go to login</string>
+    <string name="login">log in</string>
+    <string name="id">id</string>
+    <string name="go_to_register">go to register</string>
 </resources>

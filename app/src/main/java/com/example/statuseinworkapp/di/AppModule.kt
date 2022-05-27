@@ -6,7 +6,8 @@ import com.example.statuseinworkapp.data.UserRepository
 import com.example.statuseinworkapp.data.network.BASE_URL
 import com.example.statuseinworkapp.data.network.LoginService
 import com.example.statuseinworkapp.data.network.client
-import com.example.statuseinworkapp.ui.login.UserViewModel
+import com.example.statuseinworkapp.ui.login.LoginViewModel
+import com.example.statuseinworkapp.ui.register.RegisterViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -43,5 +44,6 @@ val appModule = module {
             .build()
         retrofit
     }
-    viewModel{UserViewModel(get())}
+    viewModel{ RegisterViewModel(get()) }
+    viewModel{ LoginViewModel(get()) }
 }
